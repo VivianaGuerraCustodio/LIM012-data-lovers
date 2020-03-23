@@ -5,15 +5,16 @@ import {
 import lol from './data/lol/lol.js';
 
 const allChampionList = lol.data;
+// console.log(allchampionList);
 
+// console.log(root);
 const divContador = document.getElementById('contador');
 const buttonAllChampions = document.getElementById('button_colection');
 
 buttonAllChampions.addEventListener('click', () => {
   const list = document.querySelector('#root');
   list.innerHTML = ''; /* Primero lo vacía luego coloca todo a todos los campeones */
-  // eslint-disable-next-line no-unused-vars
-  const seeAllChampion = Object.values(allChampionList).forEach((champion) => {
+  Object.values(allChampionList).forEach((champion) => {
     const div = document.createElement('div');
     const img = document.createElement('img');
     const p = document.createElement('p');
@@ -29,13 +30,20 @@ buttonAllChampions.addEventListener('click', () => {
 });
 
 const liRoles = document.querySelectorAll('.Roles');
+// console.log(typeof liRoles); /*is an object*/
 liRoles.forEach((option) => {
   option.addEventListener('click', () => {
+    // const functionRoles = () => {
     const typeRol = option.getAttribute('data-value');
+    // console.log(typeRol);
     const functionFilterRol = allSelection(allChampionList, typeRol);
+    // console.log(functionFilterRol);
     const list = document.querySelector('#root');
     list.innerHTML = '';
+    /* Llamamos otra vez al div que contiene list,la limpiamos=> pinta lo nuevo que vamos a darle */
+    // console.log(root);
     Object.values(functionFilterRol).forEach((champion) => {
+      /* se busca el valor=>volvemos usar object.values y acceder a los valores de lo importado */
       const div = document.createElement('div');
       const img = document.createElement('img');
       const p = document.createElement('p');
