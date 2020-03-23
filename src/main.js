@@ -5,16 +5,16 @@ import {
 import lol from './data/lol/lol.js';
 
 const allChampionList = lol.data;
-// console.log(allchampionList);
 
-// console.log(root);
 const divContador = document.getElementById('contador');
 const buttonAllChampions = document.getElementById('button_colection');
 
 buttonAllChampions.addEventListener('click', () => {
   const list = document.querySelector('#root');
   list.innerHTML = ''; /* Primero lo vacía luego coloca todo a todos los campeones */
-  Object.values(allChampionList).forEach((champion) => {
+
+  // eslint-disable-next-line no-unused-vars
+  const seeAllChampion = Object.values(allChampionList).forEach((champion) => {
     const div = document.createElement('div');
     const img = document.createElement('img');
     const p = document.createElement('p');
@@ -30,6 +30,7 @@ buttonAllChampions.addEventListener('click', () => {
 });
 
 const liRoles = document.querySelectorAll('.Roles');
+
 // console.log(typeof liRoles); /*is an object*/
 liRoles.forEach((option) => {
   option.addEventListener('click', () => {
@@ -44,6 +45,7 @@ liRoles.forEach((option) => {
     // console.log(root);
     Object.values(functionFilterRol).forEach((champion) => {
       /* se busca el valor=>volvemos usar object.values y acceder a los valores de lo importado */
+
       const div = document.createElement('div');
       const img = document.createElement('img');
       const p = document.createElement('p');
