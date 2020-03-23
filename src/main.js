@@ -1,5 +1,9 @@
 /* interacción con el DOM event listeners o event handlers, se usan las que estàn en data.js */
 import {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 101829baab13ff02a43eae27a730d9f06b811c72
   allSelection, orderAZ,
 } from './data.js';
 import lol from './data/lol/lol.js';
@@ -64,6 +68,7 @@ liRoles.forEach((option) => {
     divContador.innerHTML = (`${typeRol} ${functionFilterRol.length}`);
   });
 });
+<<<<<<< HEAD
 
 document.getElementById('AtoZ').addEventListener('click', () => {
   const list = document.querySelector('#root');
@@ -83,3 +88,5 @@ document.getElementById('AtoZ').addEventListener('click', () => {
   });
   return seeAllChampion(orderAZ(allChampionList));
 });
+=======
+>>>>>>> 101829baab13ff02a43eae27a730d9f06b811c72
