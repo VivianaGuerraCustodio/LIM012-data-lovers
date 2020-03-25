@@ -1,3 +1,4 @@
+
 /* interacción con el DOM event listeners o event handlers, se usan las que estàn en data.js */
 import {
   allSelection, sortOrder,
@@ -34,24 +35,21 @@ buttonAllChampions.addEventListener('click', (event) => {
   champions(arr);
 });
 
-const liRoles = document.querySelectorAll('.Roles');
 
-// console.log(typeof liRoles); /*is an object*/
+
+const liRoles = document.querySelectorAll('.Roles');
+const habilidad_popular = document.getElementById('habilidad_popular');
 liRoles.forEach((option) => {
+  
   option.addEventListener('click', () => {
-    // const functionRoles = () => {
+   habilidad_popular.style.display="block";
     const typeRol = option.getAttribute('data-value');
-    // console.log(typeRol);
     const functionFilterRol = allSelection(allChampionList, typeRol);
     // console.log(functionFilterRol);
     // eslint-disable-next-line no-shadow
     const list = document.querySelector('#root');
     list.innerHTML = '';
-    /* Llamamos otra vez al div que contiene list,la limpiamos=> pinta lo nuevo que vamos a darle */
-    // console.log(root);
     Object.values(functionFilterRol).forEach((champion) => {
-      /* se busca el valor=>volvemos usar object.values y acceder a los valores de lo importado */
-
       const div = document.createElement('div');
       const img = document.createElement('img');
       const p = document.createElement('p');
@@ -89,3 +87,20 @@ butonOrder1.addEventListener('click', (event) => {
   list.innerHTML = '';
   champions(sortOrder(arr, selectOrder1).reverse());
 });
+
+
+// if(divContador.innerHTML = (`${typeRol} ${functionFilterRol.length}`)){
+//   const liSkills = document.querySelectorAll('.HP');
+//     // console.log(typeof liRoles); /*is an object*/
+//     liSkills.forEach((option) => {
+//     option.addEventListener('click', () => {
+//       // const functionRoles = () => {
+//       const typeSkill = option.getAttribute('data-value');
+//       // console.log(typeRol);
+//       const functionFilterSkill = filterBySkill(allChampionList, typeSkill);
+//       // console.log(functionFilterRol);
+//       const list = document.querySelector('#root');
+//       list.innerHTML = '';
+//       /* Llamamos otra vez al div que contiene list,la limpiamos=> pinta lo nuevo que vamos a darle */
+//       // console.log(root);
+//       return Object.values(functionFilterSkill).forEach((champion) => {
