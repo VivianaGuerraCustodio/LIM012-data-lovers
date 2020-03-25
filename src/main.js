@@ -2,6 +2,7 @@
 /* interacción con el DOM event listeners o event handlers, se usan las que estàn en data.js */
 import {
   allSelection, sortOrder,
+// eslint-disable-next-line import/named
 } from './data.js';
 import lol from './data/lol/lol.js';
 
@@ -36,13 +37,12 @@ buttonAllChampions.addEventListener('click', (event) => {
 });
 
 
-
 const liRoles = document.querySelectorAll('.Roles');
+// eslint-disable-next-line camelcase
 const habilidad_popular = document.getElementById('habilidad_popular');
 liRoles.forEach((option) => {
-  
   option.addEventListener('click', () => {
-   habilidad_popular.style.display="block";
+    habilidad_popular.style.display = 'block';
     const typeRol = option.getAttribute('data-value');
     const functionFilterRol = allSelection(allChampionList, typeRol);
     // console.log(functionFilterRol);
@@ -101,6 +101,7 @@ butonOrder1.addEventListener('click', (event) => {
 //       // console.log(functionFilterRol);
 //       const list = document.querySelector('#root');
 //       list.innerHTML = '';
-//       /* Llamamos otra vez al div que contiene list,la limpiamos=> pinta lo nuevo que vamos a darle */
+//       /* Llamamos otra vez al div que contiene list,
+// la limpiamos=> pinta lo nuevo que vamos a darle */
 //       // console.log(root);
 //       return Object.values(functionFilterSkill).forEach((champion) => {
