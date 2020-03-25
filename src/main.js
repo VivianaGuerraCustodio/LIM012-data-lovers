@@ -1,20 +1,19 @@
 /* interacción con el DOM event listeners o event handlers, se usan las que estàn en data.js */
 import {
-  allSelection, orderAZ,
+  allSelection, sortOrder,
 } from './data.js';
 import lol from './data/lol/lol.js';
 
 const allChampionList = lol.data;
+const arr = Object.values(allChampionList);
+// eslint-disable-next-line no-alert
+// alert(Array.isArray(arr));
 
 const divContador = document.getElementById('contador');
+const list = document.querySelector('#root');
 const buttonAllChampions = document.getElementById('button_colection');
-
-buttonAllChampions.addEventListener('click', () => {
-  const list = document.querySelector('#root');
-  list.innerHTML = ''; /* Primero lo vacía luego coloca todo a todos los campeones */
-
-  // eslint-disable-next-line no-unused-vars
-  const seeAllChampion = Object.values(allChampionList).forEach((champion) => {
+const champions = (array) => {
+  Object.values(array).forEach((champion) => {
     const div = document.createElement('div');
     const img = document.createElement('img');
     const p = document.createElement('p');
@@ -25,8 +24,14 @@ buttonAllChampions.addEventListener('click', () => {
     div.appendChild(img);
     div.appendChild(p);
     list.appendChild(div);
-    divContador.innerHTML = 'Todos los campeones 122';
+    divContador.innerHTML = 'Campeones : 122';
   });
+};
+// champions(arr);
+buttonAllChampions.addEventListener('click', (event) => {
+  event.preventDefault();
+  list.innerHTML = '';
+  champions(arr);
 });
 
 const liRoles = document.querySelectorAll('.Roles');
@@ -39,6 +44,7 @@ liRoles.forEach((option) => {
     // console.log(typeRol);
     const functionFilterRol = allSelection(allChampionList, typeRol);
     // console.log(functionFilterRol);
+    // eslint-disable-next-line no-shadow
     const list = document.querySelector('#root');
     list.innerHTML = '';
     /* Llamamos otra vez al div que contiene list,la limpiamos=> pinta lo nuevo que vamos a darle */
@@ -65,21 +71,21 @@ liRoles.forEach((option) => {
   });
 });
 
-document.getElementById('AtoZ').addEventListener('click', () => {
-  const list = document.querySelector('#root');
+// eslint-disable-next-line no-shadow
+const butonOrder = document.getElementById('AtoZ');
+butonOrder.addEventListener('click', (event) => {
+  event.preventDefault();
+  // return seeAllChampion.innerHTML.sort().reverse();
+  const selectOrder = butonOrder.value;
   list.innerHTML = '';
-  const seeAllChampion = Object.values(allChampionList).forEach((champion) => {
-    const div = document.createElement('div');
-    const img = document.createElement('img');
-    const p = document.createElement('p');
-    p.className = 'nameOfChampion';
-    img.className = 'imageOfChampion';
-    p.innerHTML = `${champion.name}`;
-    img.src = `${champion.splash}`;
-    div.appendChild(img);
-    div.appendChild(p);
-    list.appendChild(div);
-    divContador.innerHTML = 'Todos los campeones 122';
-  });
-  return seeAllChampion(orderAZ(allChampionList));
+  champions(sortOrder(arr, selectOrder));
+});
+
+const butonOrder1 = document.getElementById('ZtoA');
+butonOrder1.addEventListener('click', (event) => {
+  event.preventDefault();
+  // return seeAllChampion.innerHTML.sort().reverse();
+  const selectOrder1 = butonOrder1.value;
+  list.innerHTML = '';
+  champions(sortOrder(arr, selectOrder1).reverse());
 });
