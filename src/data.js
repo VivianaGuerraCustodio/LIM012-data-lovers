@@ -23,10 +23,9 @@ export const sortOrder = (arr, condition) => {
     arr.sort((a, b) => ((a.id < b.id) ? -1 : 1));
   }
   return arr;
-
-
-export const filterBySkill = (allchampionList, typeSkill) => {
-  const arrayValuesChampions = Object.values(allchampionList);
-  return arrayValuesChampions.filter(championsList => championsList.info.typeSkill.indexOf(typeSkill) >= 0);
-
 };
+
+// export const filterBySkill = (allchampionList, typeSkill) => {
+//  const arrayValuesChampions = Object.values(allchampionList);
+//  return arrayValuesChampions.filter(championsList =>
+// championsList.info.typeSkill.indexOf(typeSkill) >= 0);};
