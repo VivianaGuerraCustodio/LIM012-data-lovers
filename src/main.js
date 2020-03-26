@@ -1,5 +1,3 @@
-
-/* interacción con el DOM event listeners o event handlers, se usan las que estàn en data.js */
 import {
   allSelection, sortOrder,
 // eslint-disable-next-line import/named
@@ -72,7 +70,6 @@ liRoles.forEach((option) => {
 const butonOrder = document.getElementById('AtoZ');
 butonOrder.addEventListener('click', (event) => {
   event.preventDefault();
-  // return seeAllChampion.innerHTML.sort().reverse();
   const selectOrder = butonOrder.value;
   list.innerHTML = '';
   champions(sortOrder(arr, selectOrder));
@@ -81,26 +78,7 @@ butonOrder.addEventListener('click', (event) => {
 const butonOrder1 = document.getElementById('ZtoA');
 butonOrder1.addEventListener('click', (event) => {
   event.preventDefault();
-  // return seeAllChampion.innerHTML.sort().reverse();
   const selectOrder1 = butonOrder1.value;
   list.innerHTML = '';
   champions(sortOrder(arr, selectOrder1).reverse());
 });
-
-
-// if(divContador.innerHTML = (`${typeRol} ${functionFilterRol.length}`)){
-//   const liSkills = document.querySelectorAll('.HP');
-//     // console.log(typeof liRoles); /*is an object*/
-//     liSkills.forEach((option) => {
-//     option.addEventListener('click', () => {
-//       // const functionRoles = () => {
-//       const typeSkill = option.getAttribute('data-value');
-//       // console.log(typeRol);
-//       const functionFilterSkill = filterBySkill(allChampionList, typeSkill);
-//       // console.log(functionFilterRol);
-//       const list = document.querySelector('#root');
-//       list.innerHTML = '';
-//       /* Llamamos otra vez al div que contiene list,la limpiamos=>
-// pinta lo nuevo que vamos a darle */
-//       // console.log(root);
-//       return Object.values(functionFilterSkill).forEach((champion) => {

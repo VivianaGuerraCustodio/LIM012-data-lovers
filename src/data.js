@@ -24,8 +24,3 @@ export const sortOrder = (arr, condition) => {
   }
   return arr;
 };
-
-// export const filterBySkill = (allchampionList, typeSkill) => {
-//  const arrayValuesChampions = Object.values(allchampionList);
-//  return arrayValuesChampions.filter(championsList =>
-// championsList.info.typeSkill.indexOf(typeSkill) >= 0);};
