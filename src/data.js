@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 // estas funciones son de ejemplo
 
 // entiendo que se trabaja con src/data y se llevan a main.js
@@ -16,11 +17,15 @@ export const allSelection = (allchampionList, typeRol) => {
   /* De este nuevo array de valores queremos encontrar aquellos que coincidan con  */
   /* typeRol que le vamos a pasar, pero este tiene que existir, por tanto índice mayor a 0 */
 };
-export const sortOrder = (arr, condition) => {
-  if (condition === 'a-z') {
-    arr.sort((a, b) => ((a.id > b.id) ? -1 : 1));
-  } else {
-    arr.sort((a, b) => ((a.id < b.id) ? -1 : 1));
+
+export const searchByName = (data, string) => {
+  const stringLower = string.toLowerCase();
+  const newArray = [];
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].name.toLowerCase().startsWith(stringLower)) {
+      newArray.push(data[i]);
+    }
   }
-  return arr;
+  return newArray;
 };

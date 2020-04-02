@@ -1,12 +1,12 @@
 import {
-  allSelection, sortOrder,
+  allSelection, sortOrder, searchByName,
 // eslint-disable-next-line import/no-unresolved
 } from '../src/data.js';
 
 import lol from '../src/data/lol/lol.js';
 
 const champions = lol.data;
-const arr = Object.values(champions);
+const dataLol = Object.values(champions);
 
 describe('allSelection', () => {
   it('debería ser una función', () => {
@@ -45,10 +45,28 @@ describe('sortOrder', () => {
   });
 
   it('debería retornar un array de objetos ordenados de a-z', () => {
-    expect(sortOrder(arr, 'a-z')).toEqual(arr);
+    expect(sortOrder(dataLol, 'a-z')).toEqual(dataLol);
   });
 
   it('debería retornar un array de objetos ordenados de z-a', () => {
-    expect(sortOrder(arr, 'z-a').reverse()).toEqual(arr.reverse());
+    expect(sortOrder(dataLol, 'z-a').reverse()).toEqual(dataLol.reverse());
+  });
+});
+
+describe('searchByName', () => {
+  it('debería ser una función', () => {
+    expect(typeof searchByName).toBe('function');
+  });
+  it('debería retornar Aatrox para búsqueda : "Aatrox" ', () => {
+    const search = searchByName(dataLol, 'aatrox');
+    expect(search).toHaveLength(1);
+  });
+  it('debería retornar varios campeones para búsqueda : "z" ', () => {
+    const search = searchByName(dataLol, 'z');
+    expect(search).toHaveLength(5);
+  });
+  it('debería retornar (nada) para " + "(cualquier caracter', () => {
+    const search = searchByName(dataLol, '+');
+    expect(search).toHaveLength(0);
   });
 });

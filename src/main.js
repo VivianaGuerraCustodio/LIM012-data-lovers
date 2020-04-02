@@ -1,11 +1,13 @@
+/* eslint-disable array-callback-return */
 import {
-  allSelection, sortOrder,
+  // eslint-disable-next-line import/named
+  allSelection, sortOrder, searchByName,
 // eslint-disable-next-line import/named
 } from './data.js';
 import lol from './data/lol/lol.js';
 
 const allChampionList = lol.data;
-const arr = Object.values(allChampionList);
+const dataLol = Object.values(allChampionList);
 // eslint-disable-next-line no-alert
 // alert(Array.isArray(arr));
 
@@ -27,11 +29,11 @@ const champions = (array) => {
     divContador.innerHTML = 'Campeones : 122';
   });
 };
-// champions(arr);
+
 buttonAllChampions.addEventListener('click', (event) => {
   event.preventDefault();
   list.innerHTML = '';
-  champions(arr);
+  champions(dataLol);
 });
 
 const liRoles = document.querySelectorAll('.Roles');
@@ -66,19 +68,11 @@ liRoles.forEach((option) => {
   });
 });
 
-// eslint-disable-next-line no-shadow
-const butonOrder = document.getElementById('AtoZ');
-butonOrder.addEventListener('click', (event) => {
-  event.preventDefault();
-  const selectOrder = butonOrder.value;
-  list.innerHTML = '';
-  champions(sortOrder(arr, selectOrder));
-});
 
-const butonOrder1 = document.getElementById('ZtoA');
-butonOrder1.addEventListener('click', (event) => {
-  event.preventDefault();
-  const selectOrder1 = butonOrder1.value;
+const inputSearch = document.getElementById('searchTexto');
+inputSearch.addEventListener('keyup', (event) => {
   list.innerHTML = '';
-  champions(sortOrder(arr, selectOrder1).reverse());
+  const valueToSearch = event.target.value;
+  champions(searchByName(dataLol, valueToSearch));
+  divContador.innerHTML = (`Encontrados: ${searchByName.length}`);
 });
