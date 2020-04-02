@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import {
   // eslint-disable-next-line import/named
-  allSelection, sortOrder, searchByName,
+  allSelection, searchByName,
 // eslint-disable-next-line import/named
 } from './data.js';
 import lol from './data/lol/lol.js';
@@ -73,6 +73,7 @@ const inputSearch = document.getElementById('searchTexto');
 inputSearch.addEventListener('keyup', (event) => {
   list.innerHTML = '';
   const valueToSearch = event.target.value;
+  const contador = searchByName(dataLol, valueToSearch);
   champions(searchByName(dataLol, valueToSearch));
-  divContador.innerHTML = (`Encontrados: ${searchByName.length}`);
+  divContador.innerHTML = (`Encontrados: ${contador.length}`);
 });
