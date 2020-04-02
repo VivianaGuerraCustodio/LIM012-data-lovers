@@ -1,9 +1,7 @@
-
-/* eslint-disable array-callback-return */
 import {
-  // eslint-disable-next-line import/named
-  allSelection, searchByName, sortOrder
+  allSelection, searchByName, sortOrder,
 // eslint-disable-next-line import/named
+// eslint-disable-next-line import/extensions
 } from './data.js';
 import lol from './data/lol/lol.js';
 
@@ -32,7 +30,6 @@ buttonAllChampions.addEventListener('click', (event) => {
 });
 
 const divContador = document.getElementById('contador');
-const list = document.querySelector('#root');
 const buttonAllChampions = document.getElementById('button_colection');
 const champions = (array) => {
   Object.values(array).forEach((champion) => {
