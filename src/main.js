@@ -5,7 +5,6 @@ import {
   searchByName,
   sortOrder,
 } from './data.js';
-
 import lol from './data/lol/lol.js';
 
 const allChampionList = lol.data;
@@ -183,6 +182,7 @@ liRoles.forEach((option) => {
     if (attributeLi === 'roles') {
       typeRol = option.getAttribute('data-value');
       list.innerHTML = '';
+
       const arrCampeonesPorRol = allSelection(dataLol, typeRol);
       championsRol(arrCampeonesPorRol);
       divContador.innerHTML = `${typeRol} ${arrCampeonesPorRol.length}`;
@@ -230,3 +230,4 @@ menuResponsive.addEventListener('click', () => {
     meter = 0;
   }
 });
+
