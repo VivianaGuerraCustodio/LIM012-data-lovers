@@ -1,3 +1,4 @@
+
 /* eslint-disable import/named */
 /* eslint-disable import/extensions */
 import {
@@ -14,21 +15,24 @@ const divContador = document.getElementById('contador');
 const list = document.querySelector('#root');
 const generalContainer = document.getElementById('generalContainer');
 const buttonWelcome = document.getElementById('button-welcome');
-const backgroundWelcomeBlack = document.getElementById('background-welcome-black');
 const popularHability = document.getElementById('habilidad_popular');
 const allButtons = document.getElementById('content_buttons');
 const gifChampion = document.getElementById('img-list');
-const firstPage = document.getElementById('welcome');
+const firstPage = document.getElementById('welcomeGift');
 const ctx = document.getElementById('calculationGraph').getContext('2d');
 const canvasCalculationGraph = document.getElementById('calculationGraph');
+
+const liRoles = document.querySelectorAll('.prueba');
+
 buttonWelcome.addEventListener('click', () => {
-  const welcomeGift = document.getElementById('welcomeGift');
+  const welcomeGift = document.getElementById('welcomeGift1');
   firstPage.style.display = 'none';
   welcomeGift.style.display = 'none';
-  backgroundWelcomeBlack.style.display = 'none';
   generalContainer.style.display = 'block';
   canvasCalculationGraph.style.display = 'none';
 });
+
+popularHability.style.display = 'none';
 
 const champions = (array) => {
   Object.values(array).forEach((champion) => {
@@ -117,15 +121,16 @@ const champions = (array) => {
         },
       });
     });
+    divContador.style.backgroundColor = '#316a99';
+    divContador.style.boxShadow = '0 0 10px #b3b4ab, 0 0 40px #b3b4ab, 0 0 80px #b3b4ab';
   });
 };
 
 buttonAllChampions.addEventListener('click', (event) => {
   event.preventDefault();
-  popularHability.style.display = 'none';
   list.innerHTML = '';
   champions(dataLol);
-  divContador.innerHTML = `All Champions List ${dataLol.length}`;
+  divContador.innerHTML = `Champions List ${dataLol.length}`;
 });
 const inputSearch = document.getElementById('searchTexto');
 inputSearch.addEventListener('keyup', (event) => {
@@ -159,19 +164,18 @@ const championsRol = (array, type) => {
     div.appendChild(p2);
     div.appendChild(p3);
 
-    p3 = type
-      ? p3.style.display = 'block'
-      : p3.style.display = 'none';
-    p3 = type
-      ? p2.style.marginBottom = '3px'
-      : p.style.marginBottom = '3px';
-    p3 = type
-      ? p.style.marginBottom = '3px'
-      : p.style.marginBottom = '3px';
+    p3 = type ? p3.style.display = 'block' : p3.style.display = 'none';
+    p3 = type ? p2.style.marginBottom = '3px' : p.style.marginBottom = '3px';
+    p3 = type ? p.style.marginBottom = '3px' : p.style.marginBottom = '3px';
+
+    divContador.style.backgroundColor = '#316a99';
+    divContador.style.boxShadow = '0 0 10px #b3b4ab, 0 0 40px #b3b4ab, 0 0 80px #b3b4ab';
   });
 };
 
-const liRoles = document.querySelectorAll('.prueba');
+
+/* LLAMANDO A LOS CAMPEONES SEGÚN ROL */
+
 // console.log(liRoles);
 let typeRol;/* '' o [] espera ese tipo,pero como está ahora solo recibe sin importar el tipo */
 
@@ -182,21 +186,22 @@ liRoles.forEach((option) => {
     if (attributeLi === 'roles') {
       typeRol = option.getAttribute('data-value');
       list.innerHTML = '';
-
       const arrCampeonesPorRol = allSelection(dataLol, typeRol);
       championsRol(arrCampeonesPorRol);
       divContador.innerHTML = `${typeRol} ${arrCampeonesPorRol.length}`;
     } else if (attributeLi === 'hp') {
+      popularHability.style.animation = 'none';
       const typeSkill = option.getAttribute('data-value');
       list.innerHTML = '';
-      const arrCampeonesPorRol = allSelection(dataLol, typeRol).sort(
-        (a, b) => b.info[typeSkill] - a.info[typeSkill],
-      );
+      const arrCampeonesPorRol = allSelection(dataLol, typeRol);
+      arrCampeonesPorRol.sort((a, b) => b.info[typeSkill] - a.info[typeSkill]);
+      // console.log(typeSkill);
       championsRol(arrCampeonesPorRol, typeSkill);
       divContador.innerHTML = `${typeRol} ${arrCampeonesPorRol.length}`;
     }
   });
 });
+
 
 const butonOrder = document.getElementById('AtoZ');
 butonOrder.addEventListener('click', (event) => {
@@ -215,19 +220,17 @@ butonOrder1.addEventListener('click', (event) => {
   champions(sortOrder(dataLol, selectOrder1).reverse());
 });
 
-
-const menuResponsive = document.getElementById('menu');
-const filtros = document.getElementById('filtros');
-let meter = 0;
-
-menuResponsive.addEventListener('click', () => {
-  if (meter === 0) {
-    filtros.className = ('filtros responsive2');
-    meter = 1;
-  } else {
-    filtros.classList.remove('responsive2');
-    filtros.className = ('filtros responsive');
-    meter = 0;
-  }
-});
+// const butonOrder = document.getElementById('alphabeticOrder');
+// butonOrder.addEventListener('click', (event) => {
+//   const valueAlphabetic = event.target.value;
+//   switch (valueAlphabetic) {
+//     case 'a-z':
+//       champions(sortOrder(dataLol, 'a-z'));
+//       break;
+//     case 'z-a':
+//       champions(sortOrder(dataLol, valueAlphabetic).reverse());
+//       break;
+//     default:
+//   }
+// });
 
