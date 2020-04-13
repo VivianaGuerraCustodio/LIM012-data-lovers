@@ -21,6 +21,7 @@ const gifChampion = document.getElementById('img-list');
 const firstPage = document.getElementById('welcomeGift');
 const ctx = document.getElementById('calculationGraph').getContext('2d');
 const canvasCalculationGraph = document.getElementById('calculationGraph');
+const footer = document.getElementById('external-links');
 
 const liRoles = document.querySelectorAll('.prueba');
 
@@ -52,7 +53,7 @@ const champions = (array) => {
       // generalContainer.innerHTML = '';
       // graphicChart.style.display = 'block';
       allButtons.innerHTML = '';
-      buttonAllChampions.style.display = 'block';
+      footer.style.display = 'none';
       list.innerHTML = '';
       canvasCalculationGraph.style.display = 'block';
       const divForInfoChampion = document.createElement('div');
@@ -123,6 +124,9 @@ const champions = (array) => {
           },
         },
       };
+      Chart.defaults.scale.ticks.display = false;
+      Chart.defaults.global.elements.borderWidth = 0;
+      Chart.defaults.scale.gridLines.color = '#fff';
       // eslint-disable-next-line no-unused-vars
       const polarAreaChart = new Chart(ctx, dataCalculation);
     });

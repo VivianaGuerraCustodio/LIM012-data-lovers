@@ -146,7 +146,7 @@ background: linear-gradient(90deg,transparent,#2196f3);
   background-attachment: fixed;
   /* background-size: cover; */
   /*esto es para hacerlo responsive :) */
-  background-position: center;
+  background-position: center center;
   height: 100%;
   width: 100%;
   margin: auto;
@@ -451,12 +451,12 @@ box-shadow: 0px 0px 15px 15px#b09d57;
   color: #ffbf00;
   font-size: larger;
   text-align: center;
-  margin-top: 29%;
-  margin-left: 16%;
-  margin-right: 30%;
-  overflow-wrap: normal;
+  margin-top: 5%;
+  margin-left: 35%;
+  margin-right: 5%;
+  /* overflow-wrap: normal; */
   font-family: 'Cinzel Decorative', cursive;
-  height: 3rem;
+  /* height: 3rem; */
   align-content: right;
   position: absolute;
 }
