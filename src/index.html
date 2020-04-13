@@ -10,8 +10,8 @@
         <link
             href="https://fonts.googleapis.com/css?family=Bangers|Righteous&display=swap"
             rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" 
-            rel="stylesheet"/>
+            <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" 
+            rel="stylesheet">
         <link rel="stylesheet" href="style.css"/>
     </head>
     <body>
@@ -19,7 +19,7 @@
         <div id="video2">
             <video
                 id="welcomeGift1"
-                src="./assets/intro1_LOL.mp4"
+                src="./assets/initialVideoLol.mp4"
                 autoplay="autoplay"
                 muted="muted"
                 loop="loop"></video>
@@ -29,14 +29,14 @@
                 Whether you prefer to jump right into battle, support your teammates, or
                 something in between, there's a lucre for you in the rift.
             </p>
-            <button id="button-welcome">start</button>
+            <button id="button-welcome">START</button>
       </section>
         <div id="generalContainer">
             <header>
                 <div id="logo">
                     <img id="logo_Lol" src="assets/logo1.png" alt=""/>
                 </div>
-                <div id='content_buttons'>
+                <div id="content_buttons">
                     <div id="buttons_colection_champions">
                         <input id="button_colection" type="button" value="Collection"/>
                         <div id="contador">Champions</div>
@@ -96,14 +96,6 @@
                                             Z - A
                                         </a>
                                     </li>
-                                    <li class="">
-                                        <a href="">
-                                            Ascendente</a>
-                                    </li>
-                                    <li class="">
-                                        <a href="">
-                                            Descendente</a>
-                                    </li>
                                 </ul>
                             </li>
                             <section>
@@ -137,12 +129,10 @@
                 <section class="all_Champions">
                     <div id = "root">
                     </div>
-         </div>
-                   <div id="graphicChart">
-                    <canvas id='calculationGraph' class="chartjs-render-monitor" 
-                    style="display: block"> </canvas> </div>
-                 <img id="img-list" src="./assets/list.-champion.gif">
-                    </div>
+                <canvas id="calculationGraph" width="7%" height="7%" 
+                style="margin-left:25%; position: relative; display:flexbox;">
+                </canvas>
+                 <img id="img-list" src="./assets/teemoJump.gif"/>
                     <div id="filterToSearch" class=""></div>
                 </section>
                 <section class="rol_fighter">

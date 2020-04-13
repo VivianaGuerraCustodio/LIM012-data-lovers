@@ -1,4 +1,4 @@
-
+/* eslint-disable no-undef */
 /* eslint-disable import/named */
 /* eslint-disable import/extensions */
 import {
@@ -49,6 +49,8 @@ const champions = (array) => {
     divContador.innerHTML = 'Campeones : 122';
     img.addEventListener('click', () => {
       gifChampion.style.display = 'none';
+      // generalContainer.innerHTML = '';
+      // graphicChart.style.display = 'block';
       allButtons.innerHTML = '';
       buttonAllChampions.style.display = 'block';
       list.innerHTML = '';
@@ -68,6 +70,7 @@ const champions = (array) => {
       const utilidad = (parseFloat(`${champion.stats.armor}`) + parseFloat(`${champion.stats.armorperlevel}`)
       + parseFloat(`${champion.stats.attackdamage}`) + parseFloat(`${champion.stats.attackdamageperlevel}`)
       + parseFloat(`${champion.stats.attackrange}`)) / 5;
+      // console.log(utilidad);
       const daño = (parseFloat(`${champion.stats.crit}`) + parseFloat(`${champion.stats.critperlevel}`)) / 2;
       const dureza = (parseFloat(`${champion.stats.hp}`) + parseFloat(`${champion.stats.hpperlevel}`)
       + parseFloat(`${champion.stats.hpregen}`) + parseFloat(`${champion.stats.hpregenperlevel}`)) / 4;
@@ -76,7 +79,7 @@ const champions = (array) => {
       const controlDeMasas = (parseFloat(`${champion.stats.mp}`) + parseFloat(`${champion.stats.mpperlevel}`)
       + parseFloat(`${champion.stats.mpregen}`) + parseFloat(`${champion.stats.mpregenperlevel}`)
       + parseFloat(`${champion.stats.spellblock}`) + parseFloat(`${champion.stats.spellblockperlevel}`)) / 6;
-      const calculationGraph = new Chart(ctx, {
+      const dataCalculation = {
         type: 'polarArea',
         data: {
           datasets: [{
@@ -95,6 +98,7 @@ const champions = (array) => {
               '#a6d4f2',
             ],
             label: 'DataOfChampions', // for legend
+            showLine: false,
           }],
           labels: [
             'utilidad',
@@ -105,11 +109,10 @@ const champions = (array) => {
           ],
         },
         options: {
+          showScale: false,
           responsive: true,
           maintainAspectRatio: false,
-          legend: {
-            position: 'right',
-          },
+          legend: false,
           title: {
             display: true,
             text: 'DataOfChampions',
@@ -119,7 +122,9 @@ const champions = (array) => {
             animateScale: true,
           },
         },
-      });
+      };
+      // eslint-disable-next-line no-unused-vars
+      const polarAreaChart = new Chart(ctx, dataCalculation);
     });
     divContador.style.backgroundColor = '#316a99';
     divContador.style.boxShadow = '0 0 10px #b3b4ab, 0 0 40px #b3b4ab, 0 0 80px #b3b4ab';
@@ -138,7 +143,7 @@ inputSearch.addEventListener('keyup', (event) => {
   const valueToSearch = event.target.value;
   const contador = searchByName(dataLol, valueToSearch);
   champions(searchByName(dataLol, valueToSearch));
-  divContador.innerHTML = (`Encontrados: ${contador.length}`);
+  divContador.innerHTML = (`Found: ${contador.length}`);
 });
 
 const championsRol = (array, type) => {
@@ -206,7 +211,6 @@ liRoles.forEach((option) => {
 const butonOrder = document.getElementById('AtoZ');
 butonOrder.addEventListener('click', (event) => {
   event.preventDefault();
-  // return seeAllChampion.innerHTML.sort().reverse();
   const selectOrder = butonOrder.value;
   list.innerHTML = '';
   champions(sortOrder(dataLol, selectOrder));
@@ -214,23 +218,7 @@ butonOrder.addEventListener('click', (event) => {
 const butonOrder1 = document.getElementById('ZtoA');
 butonOrder1.addEventListener('click', (event) => {
   event.preventDefault();
-  // return seeAllChampion.innerHTML.sort().reverse();
   const selectOrder1 = butonOrder1.value;
   list.innerHTML = '';
   champions(sortOrder(dataLol, selectOrder1).reverse());
 });
-
-// const butonOrder = document.getElementById('alphabeticOrder');
-// butonOrder.addEventListener('click', (event) => {
-//   const valueAlphabetic = event.target.value;
-//   switch (valueAlphabetic) {
-//     case 'a-z':
-//       champions(sortOrder(dataLol, 'a-z'));
-//       break;
-//     case 'z-a':
-//       champions(sortOrder(dataLol, valueAlphabetic).reverse());
-//       break;
-//     default:
-//   }
-// });
-
