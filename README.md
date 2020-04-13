@@ -13,7 +13,7 @@
 
 ## 1. Investigación UX: 🕵️
  
-El proyecto consiste en mostrar una colección de los campeones de **League of Legends** y hacer filtrados sobre esta data según lo que hemos identificado que el usuario requiere, mostrando información del campeón elegido con una tabla estadística de sus más resaltantes habilidades.
+El proyecto consiste en mostrar una colección de los campeones de **League of Legends** y hacer filtrados sobre esta data según lo que hemos identificado que el usuario requiere, mostrando información del campeón elegido con un gráfico estadístico de sus más resaltantes habilidades, divididas por secciones.
 
 ## 2. ¿Quiénes son los principales usuarios del producto?
 
