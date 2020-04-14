@@ -1,8 +1,8 @@
 # Proyecto : Data Lovers (Wiki LoL)
 
 ## Índice: 🕹️
-* [1. Investigación UX](#1-Investigación-UX:-🕵️)
-* [2. ¿Quiénes son los principales usuarios del product](#2-¿Quiénes-son-los-principales-usuarios-del-producto?)
+* [1. Investigación UX: 🕵️](#1-Investigación-UX:-🕵️)
+* [2. ¿Quiénes son los principales usuarios del producto?](#2-¿Quiénes-son-los-principales-usuarios-del-producto?)
 * [3. ¿Cuales son los objetivos de estos usuarios en relación con tu producto?](#3-¿Cuales-son-los-objetivos-de-estos-usuarios-en-relación-con-tu-producto?)
 * [4. ¿Cómo crees que el producto que estás creando está resolviendo sus problemas?](#4-¿Cómo-crees-que-el-producto-que-estás-creando-está-resolviendo-sus-problemas?)
 * [5. Planning y Prototipado](#5-Planning-y-Prototipo)
